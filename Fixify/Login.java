@@ -1,3 +1,5 @@
+package Fixify;
+
 public class Login {
 
     String username;

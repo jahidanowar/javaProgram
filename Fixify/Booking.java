@@ -9,11 +9,6 @@ package Fixify;
 import java.util.Date;
 import java.util.Scanner;
 
-// Acesss Specifier:
-// Public
-// Private
-// Protected
-
 public class Booking {
     // Attributes
     // Public Access Specifier
@@ -39,33 +34,42 @@ public class Booking {
     }
 
     // validate all the inputs
-    public boolean validateBooking() {
-        boolean isValid = true;
-        if (device == null && device.equals("")) {
-            System.out.println("\nDevice cannot be empty");
-            isValid = false;
+    public boolean validateBooking() throws IllegalArgumentException {
+        // boolean isValid = true;
+        if (device == null || device.equals("")) {
+            // System.out.println("\nDevice cannot be empty");
+            // isValid = false;
+            throw new IllegalArgumentException("Device cannot be empty");
         }
-        if (model == null && model.equals("")) {
-            System.out.println("\nModel cannot be empty");
-            isValid = false;
+        if (model == null || model.equals("")) {
+            // System.out.println("\nModel cannot be empty");
+            // isValid = false;
+            throw new IllegalArgumentException("Model cannot be empty");
         }
-        if (imeiNumber == null && imeiNumber.equals("")) {
-            System.out.println("\nIMEI Number cannot be empty");
-            isValid = false;
+        if (imeiNumber == null || imeiNumber.equals("")) {
+            // System.out.println("\nIMEI Number cannot be empty");
+            // isValid = false;
+            throw new IllegalArgumentException("IMEI Number cannot be empty");
         }
-        if (customerName == null && customerName.equals("")) {
-            System.out.println("\nCustomer Name cannot be empty");
-            isValid = false;
+        if (customerName == null || customerName.equals("")) {
+            // System.out.println("\nCustomer Name cannot be empty");
+            // isValid = false;
+            throw new IllegalArgumentException("Customer Name cannot be empty");
         }
-        if (customerPhone == null && customerPhone.equals("")) {
-            System.out.println("\nCustomer Phone cannot be empty");
-            isValid = false;
+        if (customerPhone == null || customerPhone.equals("")) {
+            // System.out.println("\nCustomer Phone cannot be empty");
+            // isValid = false;
+            throw new IllegalArgumentException("Customer Phone cannot be empty");
         }
-        if (customerEmail == null && customerEmail.equals("")) {
-            System.out.println("\nCustomer Email cannot be empty");
-            isValid = false;
+        if (customerEmail == null || customerEmail.equals("")) {
+            // System.out.println("\nCustomer Email cannot be empty");
+            // isValid = false;
+            throw new IllegalArgumentException("Customer Email cannot be empty");
         }
-        return isValid;
+
+        // return isValid;
+        return true;
+
     }
 
     // Methods
@@ -85,6 +89,7 @@ public class Booking {
         device = sc.nextLine();
         System.out.println("Model: ");
         model = sc.nextLine();
+        sc.close();
     }
 
     // Prints all the attributes of the object
@@ -104,11 +109,23 @@ public class Booking {
 
         // Class and Object demonstration
 
-        // Booking booking1 = new Booking(1); // Constructor
-        System.out.println("Class info" + new Booking(1).getClass());
+        Booking booking1 = new Booking(1); // Constructor
 
         // Methods
-        // booking1.takeRepairInfo();
+        booking1.takeRepairInfo();
+
+        System.out.println("\nValidating your data...");
+        try {
+
+            if (booking1.validateBooking()) {
+                booking1.showBooking();
+            }
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            System.out.println("\nThank you for using Fixify");
+        }
+
         // if (booking1.validateBooking()) {
         // booking1.showBooking();
         // }
