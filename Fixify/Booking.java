@@ -1,7 +1,7 @@
 package Fixify;
 
 /**
- * Demonstration of Class, Object, Constructor, access specifier, method overloading
+ * Demonstration Multi Threading
  * Reg.No.: 2147033
  * Name: Jahid A
  */
