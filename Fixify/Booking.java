@@ -1,7 +1,7 @@
 package Fixify;
 
 /**
- * Demonstration Multi Threading
+ * Demonstration Multi-Threading
  * Reg.No.: 2147033
  * Name: Jahid A
  */
