@@ -53,11 +53,9 @@ class Account {
 
     static void writeLineToFile(String line) {
         try {
-            // FileOutputStream fos = new FileOutputStream("accounts.txt", true);
             FileWriter fw = new FileWriter("accounts.txt", true);
             fw.write(line + "\n");
             fw.close();
-
         } catch (Exception e) {
             System.out.println(e);
         }
