@@ -28,7 +28,21 @@ public class Customer {
     }
 
     public static void main(String[] args) {
-        Customer customer = new Customer("123", "John", "123 Main Street", "123-456-7890", "john.parker@gmail.com");
+        Customer customer = new Customer("123", "Jahid", "123 Main Street", "123-456-7890", "john.parker@gmail.com");
+
+        // From a here we are outsourcing the operation to a different thread
+        UserValidation uv = new UserValidation(customer.name);
+        Thread t1 = new Thread(uv, "UserValidation");
+        t1.setPriority(Thread.MIN_PRIORITY);
+
+        // Starting another thread for email validation
+        EmailValidation ev = new EmailValidation(customer.email);
+        Thread t2 = new Thread(ev, "Email Validation");
+        t2.setPriority(Thread.MAX_PRIORITY);
+
+        t1.start();
+        t2.start();
+
         customer.showCustomer();
     }
 

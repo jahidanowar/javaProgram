@@ -1,7 +1,9 @@
 package Fixify;
 
+import java.util.ArrayList;
+
 /**
- * Demonstration of Class, Object, Constructor, access specifier, method overloading
+ * Demonstration Multi-Threading
  * Reg.No.: 2147033
  * Name: Jahid A
  */
@@ -107,7 +109,9 @@ public class Booking {
 
     public static void main(String[] args) {
 
-        // Class and Object demonstration
+        // Array Collection
+        ArrayList<Booking> bookings = new ArrayList<Booking>();
+        System.out.println("\nNumber of element in the collection: " + bookings.size());
 
         Booking booking1 = new Booking(1); // Constructor
 
@@ -118,20 +122,15 @@ public class Booking {
         try {
 
             if (booking1.validateBooking()) {
-                booking1.showBooking();
+                bookings.add(booking1);
+                System.out.println("\nBooking Successful");
+                System.out.println("\nNumber of element in the collection: " + bookings.size());
             }
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
         } finally {
             System.out.println("\nThank you for using Fixify");
         }
-
-        // if (booking1.validateBooking()) {
-        // booking1.showBooking();
-        // }
-
-        // Overloading
-        // Booking booking2 = new Booking(2, "Jahid");
 
     }
 }
