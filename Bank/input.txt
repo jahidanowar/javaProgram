@@ -1,0 +1,9 @@
+create_account Jahid 5000
+deposit 1 10000
+create_account Gauri 1000
+deposit 2 10000
+withdraw 2 100
+display_bank_balance 2
+deposit 1 10000
+display_bank_balance 1
+total_balance

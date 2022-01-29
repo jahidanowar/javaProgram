@@ -1,8 +1,8 @@
 package DS;
 
 public class Stack {
-    int top;
     int[] stack;
+    int top;
     int size;
 
     public Stack(int size) {
@@ -44,27 +44,6 @@ public class Stack {
 
     public boolean isFull() {
         return top == size - 1;
-    }
-
-    public static void main(String[] args) {
-
-        Stack stack = new Stack(10);
-        stack.push(10);
-        stack.push(20);
-        stack.push(30);
-        stack.push(40);
-        stack.push(40);
-        stack.pop();
-        stack.printStack();
-        stack.pop();
-        stack.printStack();
-        stack.push(33);
-        stack.push(44);
-        stack.printStack();
-        stack.pop();
-        stack.printStack();
-        stack.pop();
-        stack.printStack();
     }
 
 }

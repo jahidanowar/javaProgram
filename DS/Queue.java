@@ -69,24 +69,4 @@ public class Queue {
         System.out.println();
     }
 
-    public static void main(String[] args) {
-
-        Queue queue = new Queue(8);
-        queue.enqueue(10);
-        queue.enqueue(13);
-        queue.enqueue(16);
-        queue.enqueue(18);
-        queue.enqueue(19);
-        queue.enqueue(20);
-        queue.printQueue();
-        queue.dequeue();
-        queue.printQueue();
-        queue.dequeue();
-        queue.printQueue();
-        queue.dequeue();
-        queue.printQueue();
-        queue.dequeue();
-        queue.printQueue();
-
-    }
 }
