@@ -107,7 +107,7 @@ class Account {
                             writeLineToFile("Account not found");
                         }
                         break;
-                    case "display_bank_balance":
+                    case "display_balance":
                         matched_account = search(accounts, Integer.parseInt(tokens[1]));
                         if (matched_account != null) {
                             writeLineToFile(matched_account.display_balance());
@@ -115,7 +115,7 @@ class Account {
                             writeLineToFile("Account not found");
                         }
                         break;
-                    case "total_balance":
+                    case "display_bank_balance":
                         writeLineToFile("Total balance in bank is " + total_balance(accounts));
                         break;
                     default:
