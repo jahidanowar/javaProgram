@@ -59,23 +59,6 @@ void selectionSort(int arr[], int left, int right)
     }
 }
 
-// Merge Sort Function
-void mergeSort(int arr[], int left, int right)
-{
-    // Check if left is less than right
-    if (left < right)
-    {
-        // Initialize variables
-        int mid = left + (right - left) / 2;
-        // Sort left half
-        mergeSort(arr, left, mid);
-        // Sort right half
-        mergeSort(arr, mid + 1, right);
-        // Merge halves
-        merge(arr, left, mid, right);
-    }
-}
-
 // Merge Function
 void merge(int arr[], int left, int mid, int right)
 {
@@ -134,16 +117,28 @@ void merge(int arr[], int left, int mid, int right)
     }
 }
 
-// Utility Function
-int countArrayEl(int arr[])
+// Merge Sort Function
+void mergeSort(int arr[], int left, int right)
 {
-    return sizeof(arr) / sizeof(arr[0]);
+    // Check if left is less than right
+    if (left < right)
+    {
+        // Initialize variables
+        int mid = left + (right - left) / 2;
+        // Sort left half
+        mergeSort(arr, left, mid);
+        // Sort right half
+        mergeSort(arr, mid + 1, right);
+        // Merge halves
+        merge(arr, left, mid, right);
+    }
 }
 
-void printArray(int arr[])
+// Utility Function
+void printArray(int arr[], int size)
 {
     // Loop through array
-    for (int i = 0; i < countArrayEl(arr); i++)
+    for (int i = 0; i < size; i++)
     {
         // Print element
         cout << arr[i] << " ";
@@ -156,28 +151,28 @@ int main()
 {
     // Initialize variables
     int arr[] = {12, 11, 13, 5, 6, 7};
-    int n = countArrayEl(arr);
+    int n = sizeof(arr) / sizeof(arr[0]);
     // Print array
     cout << "Given array is \n";
-    printArray(arr);
+    printArray(arr, n);
     cout << "\n";
     // Sort array
     insertionSort(arr, 0, n - 1);
     // Print sorted array
     cout << "After insertion sort, array is \n";
-    printArray(arr);
+    printArray(arr, n);
     cout << "\n";
 
     mergeSort(arr, 0, n - 1);
     // Print sorted array
     cout << "After merge sort, array is \n";
-    printArray(arr);
+    printArray(arr, n);
     cout << "\n";
 
     selectionSort(arr, 0, n - 1);
     // Print sorted array
     cout << "After selection sort, array is \n";
-    printArray(arr);
+    printArray(arr, n);
     cout << "\n";
 
     return 0;
