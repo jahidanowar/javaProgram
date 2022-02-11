@@ -1,3 +1,9 @@
+/***
+ * Doubly Linked List Implementation
+ * @registeration: 2147033
+ * @author: jahidanowar.mustafa@mscsa.christuniversity.in
+ **/
+
 #include <stdio.h>;
 #include <stdlib.h>;
 
