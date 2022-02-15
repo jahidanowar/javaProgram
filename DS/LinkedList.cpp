@@ -94,14 +94,44 @@ int main()
 
     struct Node *head = NULL;
 
-    push(&head, 10);
-    push(&head, 9);
-    push(&head, 9);
-    append(&head, 11);
-    append(&head, 13);
-    push(&head, 8);
+    // Menu Driven
+    int choice;
+    int data;
 
-    display(&head);
+    do
+    {
+        printf("\n1. Push\n2. Insert At\n3. Append\n4. Display\n5. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+
+        switch (choice)
+        {
+        case 1:
+            printf("Enter the data: ");
+            scanf("%d", &data);
+            push(&head, data);
+            break;
+        case 2:
+            printf("Enter the data: ");
+            scanf("%d", &data);
+            insertAt(head, data);
+            break;
+        case 3:
+            printf("Enter the data: ");
+            scanf("%d", &data);
+            append(&head, data);
+            break;
+        case 4:
+            display(&head);
+            break;
+        case 5:
+            printf("Exiting...\n");
+            break;
+        default:
+            printf("Invalid choice\n");
+            break;
+        }
+    } while (choice != 5);
 
     return 0;
 }
