@@ -12,39 +12,28 @@ struct Node
     struct Node *next;
 };
 
-/* Append Element to the list */
-void append(struct Node **head, int data)
-{
-
-    struct Node *newNode = (struct Node *)malloc(sizeof(struct Node));
-    newNode->data = data;
-
-    if (*head != NULL)
-    {
-        (*head)->next = newNode;
-        newNode->next = head;
-        return;
-    }
-
-    newNode->next = *head;
-    *head = newNode;
-}
-
-/* push element to the list */
+/* push element to the end of the circular linkedlist */
 void push(struct Node **head, int data)
 {
     struct Node *newNode = (struct Node *)malloc(sizeof(struct Node));
     newNode->data = data;
+    newNode->next = *head;
 
     if (*head == NULL)
     {
-        newNode->next = newNode;
         *head = newNode;
-        return;
+        newNode->next = *head;
     }
-
-    newNode->next = (*head)->next;
-    (*head)->next = newNode;
+    else
+    {
+        struct Node *temp = *head;
+        while (temp->next != *head)
+        {
+            temp = temp->next;
+        }
+        temp->next = newNode;
+        newNode->next = *head;
+    }
 }
 
 /* Delete element from the circular list */
@@ -81,17 +70,15 @@ void delete (struct Node **head, int data)
     free(temp);
 }
 
-/* Display the linked list */
-void printLL(struct Node *head)
+/* Display the  circular linkedlist */
+void display(struct Node *head)
 {
-
     struct Node *temp = head;
     if (temp == NULL)
     {
         printf("List is empty\n");
         return;
     }
-
     do
     {
         printf("%d ", temp->data);
@@ -106,37 +93,30 @@ int main()
     /* Menu Driven Program */
     int choice;
     struct Node *head = NULL;
+    int data;
 
     while (1)
     {
-        printf("\n1. Append\n2. Push\n3. Delete\n4. Print\n5. Exit\n");
+        printf("\n1. Push\n2. Delete\n3. Print\n4. Exit\n");
         printf("Enter your choice: ");
         scanf("%d", &choice);
 
         switch (choice)
         {
         case 1:
-            printf("Enter the element to be appended: ");
-            int data;
-            scanf("%d", &data);
-            append(&head, data);
-            break;
-        case 2:
             printf("Enter the element to be pushed: ");
-            int data;
             scanf("%d", &data);
             push(&head, data);
             break;
-        case 3:
+        case 2:
             printf("Enter the element to be deleted: ");
-            int data;
             scanf("%d", &data);
             delete (&head, data);
             break;
-        case 4:
-            printLL(head);
+        case 3:
+            display(head);
             break;
-        case 5:
+        case 4:
             exit(0);
         default:
             printf("Invalid choice\n");
