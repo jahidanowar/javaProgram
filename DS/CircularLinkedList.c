@@ -36,6 +36,30 @@ void push(struct Node **head, int data)
     }
 }
 
+/* insertAtPosition */
+// void insertAt(struct Node **head, int pos, int data){
+
+//     struct Node *newNode = (struct Node *)malloc(sizeof(struct Node));
+//     struct Node *temp;
+//     int i;
+
+//     if(*head == NULL)
+//     {
+//         printf("Empty List");
+//     }
+//     else
+//     {
+//         newnode->data = data;
+//         *head = head;
+//         for(i=0; i<=pos-3; i++)
+//         {
+//             curNode = curNode->next;
+//         }
+//         newnode->next = curNode->next;
+//         curNode->next = newnode;
+//     }
+// }
+
 /* Delete element from the circular list */
 void delete (struct Node **head, int data)
 {
@@ -65,7 +89,6 @@ void delete (struct Node **head, int data)
             return;
         }
     }
-
     prev->next = temp->next;
     free(temp);
 }
