@@ -34,6 +34,26 @@ void inorder(struct Node *root)
     }
 }
 
+void preorder(struct Node *root)
+{
+    if (root == NULL)
+        return;
+
+    printf("%d ", root->data);
+    preorder(root->left);
+    preorder(root->right);
+}
+
+void postorder(struct Node *root)
+{
+    if (root = NULL)
+        return;
+
+    postorder(root->left);
+    postorder(root->right);
+    printf("%d ", root->data);
+}
+
 struct Node *insert(struct Node *root, int data)
 {
     if (root == NULL)
@@ -141,7 +161,7 @@ int main()
 
     while (1)
     {
-        printf("\n\n1. Insert\n2. Search\n3. Delete\n4. Inorder Traversal\n5. Exit\n\nEnter your choice: ");
+        printf("\n\n1. Insert\n2. Search\n3. Delete\n4. Inorder Traversal\n5. Preorder Travarsal\n6. Postorder Travarsal\n7. Exit\n\nEnter your choice: ");
         scanf("%d", &choice);
 
         switch (choice)
@@ -170,6 +190,14 @@ int main()
             inorder(root);
             break;
         case 5:
+            printf("Preorder Travarsal: ");
+            preorder(root);
+            break;
+        case 6:
+            printf("Postorder Travarsal: ");
+            postorder(root);
+            break;
+        case 7:
             exit(0);
         default:
             printf("Wrong choice\n");
