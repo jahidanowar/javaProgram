@@ -96,7 +96,7 @@ struct Node *minValueNode(struct Node *root)
     struct Node *current = root;
     while (current->left != NULL)
     {
-        current = current->left;
+        current = current->left;    
     }
     return current;
 }
