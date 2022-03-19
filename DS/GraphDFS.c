@@ -1,4 +1,8 @@
-// DFS algorithm in C
+/**
+ * @file GraphDFS.c
+ * @author Jahid A (2147033)
+ *
+ */
 
 #include <stdio.h>
 #include <stdlib.h>
