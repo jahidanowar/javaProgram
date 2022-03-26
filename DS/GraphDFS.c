@@ -1,6 +1,7 @@
 /**
  * @file GraphDFS.c
- * @author Jahid A (2147033)
+ * @author Jahid A M (2147033)
+ * @date 2022-03-26
  *
  */
 #include <stdio.h>
